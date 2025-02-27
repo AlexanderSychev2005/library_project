@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="ant-card ant-card-bordered" style="padding: 20px;">
+    <h2>Library Management System</h2>
+
+    <div class="ant-typography">
+        <h3>About the Developer</h3>
+        <p>This project was developed to manage books, authors, students, and borrowing records efficiently.</p>
+    </div>
+
+    <h3>Navigation</h3>
+    <ul class="ant-list">
+        <li class="ant-list-item">
+            <a href="{% url 'book_list' %}" class="ant-typography">📚 Books</a>
+        </li>
+        <li class="ant-list-item">
+            <a href="{% url 'author_list' %}" class="ant-typography">✍️ Authors</a>
+        </li>
+
+    </ul>
+</div>
+{% endblock %}

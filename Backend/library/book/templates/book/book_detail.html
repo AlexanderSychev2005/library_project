@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="ant-card">
+    <h2 class="ant-typography">{{ book.title }} ({{ book.publication_year }})</h2>
+    <p><strong>Status:</strong> <span class="ant-tag">{{ book.status }}</span></p>
+
+    <h3>Authors:</h3>
+    <ul class="ant-list">
+        {% for author in book.authors.all %}
+        <li class="ant-list-item">
+            <a href="{% url 'author_detail' author.pk %}" class="ant-typography">
+                {{ author.first_name }} {{ author.last_name }}
+                {% if author.pseudonym %} ({{ author.pseudonym }}){% endif %}
+            </a>
+        </li>
+        {% empty %}
+        <li>No authors found.</li>
+        {% endfor %}
+    </ul>
+
+    <div class="ant-space">
+        <form action="{% url 'book_update' book.pk %}" method="get">
+            <button type="submit" class="ant-btn ant-btn-default">Edit</button>
+        </form>
+        <form action="{% url 'book_delete' book.pk %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="ant-btn ant-btn-danger" onclick="return confirm('Are you sure?');">Delete</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

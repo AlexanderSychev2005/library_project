@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="{% url 'home' %}" method="get">
+    <button type="submit" class="ant-btn ant-btn-default">Home page</button>
+</form>
+<h2>Books:</h2>
+<a href="{% url 'book_create' %}" class="ant-btn ant-btn-primary">Add Book</a>
+<ul class="ant-list">
+    {% for book in object_list %}
+    <li class="ant-list-item">
+        <a href="{% url 'book_detail' book.pk %}" class="ant-typography">
+            {{ book.title }} {{ book.publication_year }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
