@@ -3,12 +3,12 @@
 <form action="{% url 'home' %}" method="get">
     <button type="submit" class="ant-btn ant-btn-default">Home page</button>
 </form>
-<h2>Authors:</h2>
-<a href="{% url 'author_create' %}" class="ant-btn ant-btn-primary">Add Author</a>
+<h2>Students:</h2>
+<a href="{% url 'student_create' %}" class="ant-btn ant-btn-primary">Add Student</a>
 <ul class="ant-list">
-    {% for author in object_list %}
+    {% for student in object_list %}
     <li class="ant-list-item">
-        <a href="{% url 'author_detail' author.pk %}" class="ant-typography">{{ author.first_name }} {{ author.last_name }}</a>
+        <a href="{% url 'student_detail' student.pk %}" class="ant-typography">{{ student.first_name }} {{ student.last_name }}</a>
     </li>
     {% endfor %}
 </ul>

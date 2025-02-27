@@ -21,7 +21,7 @@
     <div class="ant-space">
         <form action="{% url 'book_update' book.pk %}" method="get">
             <button type="submit" class="ant-btn ant-btn-default">Edit</button>
-        </form>
+        </form>|
         <form action="{% url 'book_delete' book.pk %}" method="post">
             {% csrf_token %}
             <button type="submit" class="ant-btn ant-btn-danger" onclick="return confirm('Are you sure?');">Delete</button>

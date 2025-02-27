@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="ant-card">
+    <h2 class="ant-typography">{{ student.first_name }} {{ author.last_name }}</h2>
+    <p class="ant-typography">Faculty: {{ student.faculty }}</p>
+    <p class="ant-typography">Birth Date: {{ student.birth_date }}</p>
+    <form action="{% url 'student_update' student.pk %}" method="get" style="display: inline;">
+        <button type="submit" class="ant-btn ant-btn-default">Edit</button>
+    </form>|
+    <form action="{% url 'student_delete' student.pk %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="ant-btn ant-btn-danger" onclick="return confirm('Are you sure?');">Delete</button>
+    </form>
+    {% endblock %}
+</div>
