@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="ant-card">
+    <h2 class="ant-typography">Order with student id: {{ studentorder.student_id }} and book id: {{ studentorder.book_id }}</h2>
+    <p class="ant-typography">Student: {{ studentorder.student }}</p>
+    <p class="ant-typography">Book: {{ studentorder.book }}</p>
+    <p class="ant-typography">Created at: {{ studentorder.created_at }}</p>
+    <p class="ant-typography">Returned at: {{ studentorder.returned_at }}</p>
+    <p class="ant-typography">Status: {{ studentorder.status }}</p>
+    
+    <form action="{% url 'order_update' studentorder.pk %}" method="get" style="display: inline;">
+        <button type="submit" class="ant-btn ant-btn-default">Edit</button>
+    </form> |
+    
+    <form action="{% url 'order_delete' studentorder.pk %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="ant-btn ant-btn-danger" onclick="return confirm('Are you sure?');">Delete</button>
+    </form>
+</div>
+{% endblock %}

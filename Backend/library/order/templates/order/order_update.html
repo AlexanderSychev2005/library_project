@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <h2>{% if object %}Edit Order{% else %}Add Order{% endif %}</h2>
+    <form method="post" class="ant-form ant-form-vertical">
+        {% csrf_token %}
+        <div class="ant-form-item">{{ form.as_p }}</div>
+        <button type="submit" class="ant-btn ant-btn-primary">Save</button>
+    </form>
+    <form action="{% url 'order_list' %}" method="get">
+            <button type="submit" class="ant-btn ant-btn-default">Return</button>
+    </form>
+</div>
+{% endblock %}

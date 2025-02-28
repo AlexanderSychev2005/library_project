@@ -33,6 +33,6 @@ class BookUpdateView(UpdateView):
 
 class BookDeleteView(View):
     def post(self, request, pk):
-        author = get_object_or_404(Book, pk=pk)
-        author.delete()
+        book = get_object_or_404(Book, pk=pk)
+        book.delete()
         return redirect('book_list')

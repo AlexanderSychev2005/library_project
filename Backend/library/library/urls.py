@@ -23,6 +23,6 @@ urlpatterns = [
     path('authors/', include('author.urls')),
     path('books/', include('book.urls')),
     path('students/', include('student.urls')),
-    # path('orders/', include('order.urls')),
+    path('orders/', include('order.urls')),
 
 ]

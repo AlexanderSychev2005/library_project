@@ -33,6 +33,6 @@ class StudentUpdateView(UpdateView):
 
 class StudentDeleteView(View):
     def post(self, request, pk):
-        author = get_object_or_404(Student, pk=pk)
-        author.delete()
+        student = get_object_or_404(Student, pk=pk)
+        student.delete()
         return redirect('student_list')
