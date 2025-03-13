@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>{% if object %}Edit Author{% else %}Add Author{% endif %}</h2>
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-</form>
-<a href="{% url 'author_list' %}">Return</a>
+<form method="post" class="ant-form ant-form-vertical">
+        {% csrf_token %}
+        <div class="ant-form-item">{{ form.as_p }}</div>
+        <button type="submit" class="ant-btn ant-btn-primary">Save</button>
+    </form>
+    <form action="{% url 'author_list' %}" method="get">
+            <button type="submit" class="ant-btn ant-btn-default">Return</button>
+    </form>
 {% endblock %}

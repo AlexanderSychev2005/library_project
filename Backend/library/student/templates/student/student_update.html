@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div>
-    <h2>{% if object %}Edit Book{% else %}Add Student{% endif %}</h2>
+    <h2>{% if object %}Edit Student{% else %}Add Student{% endif %}</h2>
     <form method="post" class="ant-form ant-form-vertical">
         {% csrf_token %}
         <div class="ant-form-item">{{ form.as_p }}</div>
